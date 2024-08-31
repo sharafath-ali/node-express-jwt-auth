@@ -9,7 +9,7 @@ const dbUrl = "mongodb+srv://Sharu:HmANYffZgWLEpRVk@net-ninja-node-crash-co.vssl
 // middleware
 app.use(express.static('public'));
 app.use(morgan('dev'));
-
+app.use(express.json());
 // view engine
 app.set('view engine', 'ejs');
 

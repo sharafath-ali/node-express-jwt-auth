@@ -11,6 +11,7 @@ const postSignUp = (req, res) => {
 }
 
 const postLoginPage = (req, res) => {
+  console.log(req.body)
   res.send('signup');
 }
 

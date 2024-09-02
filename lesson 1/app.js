@@ -7,6 +7,7 @@ const app = express();
 const dbUrl = "mongodb+srv://Sharu:HmANYffZgWLEpRVk@net-ninja-node-crash-co.vssl4.mongodb.net/Net-Ninja-Nodejs-Crash-Course?retryWrites=true&w=majority&appName=Net-Ninja-Node-Crash-Course";
 
 // middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(express.json());

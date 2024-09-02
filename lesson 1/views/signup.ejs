@@ -1,19 +1,9 @@
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="/signup.css">
-</head>
-
-<body>
-  <nav>
-    <h1><a href="/">Ninja Smoothies</a></h1>
-  </nav>
+<%- include('partials/header'); -%>
 
   <div class="container">
     <div class="signup-wrapper">
-      <h2 class="signup-title">Sign Up</h2>
       <form action="/signup" method="POST" class="signup-form">
+        <h2 class="signup-title">Sign Up</h2>
         <!-- <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" class="form-control" required>
@@ -31,10 +21,10 @@
           <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
         </div> -->
         <button type="submit" class="btn-submit">Sign Up</button>
+        <p class="login-link">Already have an account? <a href="/login">Login</a></p>
       </form>
-      <p class="login-link">Already have an account? <a href="/login">Login</a></p>
+
     </div>
   </div>
 
   <%- include('partials/footer'); -%>
-</body>

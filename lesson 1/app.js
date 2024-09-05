@@ -32,3 +32,8 @@ app.use(AuthRoutes)
 app.get('/', (req, res) => res.render('home'));
 
 app.get('/smoothies', (req, res) => res.render('smoothies'));
+
+app.get('/set-cookie', (req, res) => {
+  res.setHeader('Set-Cookie', 'username=Sharafath; Max-Age=86400; HttpOnly');
+  res.send('Cookie has been set');
+})

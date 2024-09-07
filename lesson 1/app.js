@@ -33,16 +33,16 @@ app.get('/', (req, res) => res.render('home'));
 
 app.get('/smoothies', (req, res) => res.render('smoothies'));
 
-app.get('/set-cookie', (req, res) => {
-  res.setHeader('Set-Cookie', 'user=Sharafath; Max-Age=86400; HttpOnly');
-  res.setHeader('Set-Cookie', [
-    'username=Sharafath; Max-Age=86400; HttpOnly',
-    'role=admin; Max-Age=86400; HttpOnly',
-    'preferences=dark_mode; Max-Age=86400; HttpOnly'
-  ]);
-  res.send('Cookie has been set');
-})
+// app.get('/set-cookie', (req, res) => {
+//   res.setHeader('Set-Cookie', 'user=Sharafath; Max-Age=86400; HttpOnly');
+//   res.setHeader('Set-Cookie', [
+//     'username=Sharafath; Max-Age=86400; HttpOnly',
+//     'role=admin; Max-Age=86400; HttpOnly',
+//     'preferences=dark_mode; Max-Age=86400; HttpOnly'
+//   ]);
+//   res.send('Cookie has been set');
+// })
 
-app.get('/get-cookie', (req, res) => {
-  res.json(req.headers.cookie);
-})
+// app.get('/get-cookie', (req, res) => {
+//   res.json(req.headers.cookie);
+// })

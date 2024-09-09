@@ -10,8 +10,8 @@ const errorHandler = (err) => {
 
     return error;
   }
-  if (err.message === "email is not registered") {
-    error.email = err.message;
+  if (err.message === "incorrect email") {
+    error.email = "email is not registered";
     return error;
   }
   if (err.message === "incorrect password") {

@@ -2,11 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 var morgan = require('morgan');
 const AuthRoutes = require('./routes/authRoutes');
+const { authRequire } = require('./middleware/authMiddleware');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const dbUrl = "mongodb+srv://Sharu:HmANYffZgWLEpRVk@net-ninja-node-crash-co.vssl4.mongodb.net/Net-Ninja-Nodejs-Crash-Course?retryWrites=true&w=majority&appName=Net-Ninja-Node-Crash-Course";
 
 // middleware
+
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(morgan('dev'));
@@ -29,9 +33,9 @@ const connected = mongoose.connect(dbUrl, {
 app.use(AuthRoutes)
 
 // routes
-app.get('/', (req, res) => res.render('home'));
+app.get('/', authRequire, (req, res) => res.render('home'));
 
-app.get('/smoothies', (req, res) => res.render('smoothies'));
+app.get('/smoothies', authRequire, (req, res) => res.render('smoothies'));
 
 // app.get('/set-cookie', (req, res) => {
 //   res.setHeader('Set-Cookie', 'user=Sharafath; Max-Age=86400; HttpOnly');

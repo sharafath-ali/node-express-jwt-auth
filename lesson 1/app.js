@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 var morgan = require('morgan');
 const AuthRoutes = require('./routes/authRoutes');
-const { authRequire } = require('./middleware/authMiddleware');
+const { authRequire, checkUser } = require('./middleware/authMiddleware');
 const cookieParser = require('cookie-parser');
 
 const app = express();
@@ -30,8 +30,9 @@ const connected = mongoose.connect(dbUrl, {
   console.log('Connected to MongoDB Atlas')
 }).catch(err => console.log('Failed to connect to MongoDB Atlas', err));
 
-app.use(AuthRoutes)
+app.use("*", checkUser)
 
+app.use(AuthRoutes)
 // routes
 app.get('/', authRequire, (req, res) => res.render('home'));
 
